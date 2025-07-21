@@ -21,4 +21,11 @@
     </div>
     
 </div>
+    {% if qr_image %}
+        <div style="text-align:center">
+            <img class="qr" src="{{ qr_image }}" alt="QR Code">
+            <br>
+            <a href="{{ qr_image }}" download="qrcode.png" class="download-btn">Download QR Code</a>
+        </div>
+    {% endif %}
 {% endblock content %}
