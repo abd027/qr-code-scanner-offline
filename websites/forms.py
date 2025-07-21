@@ -1,8 +1,4 @@
-from django.forms import ModelForm
+from django import forms
 
-from .models import Website
-
-class WebsiteForm(ModelForm):
-    class Meta:
-        model = Website
-        fields = ['name']
+class WebsiteForm(forms.Form):
+    name = forms.CharField(label='Enter Text or URL', max_length=350)
