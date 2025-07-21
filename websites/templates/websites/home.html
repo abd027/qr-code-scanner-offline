@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% block content %}
+
+
+    <div class="form-container">
+    <div class="form-wrapper">
+        <h2 class="form-title">Submit Form</h2>
+        
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+            </div>
+            {% endfor %}
+            
+            <input type="submit" value="Submit" class="submit-btn"/>
+        </form>
+    </div>
+    
+</div>
+<h2>Your websites:</h2>
+<ul>
+    {% for website in websites %}
+    <li><a href="{% url 'qrcode' website.id %}">{{website.name}}</a></li>
+    {% endfor %}
+</ul>
+{% endblock content %}
